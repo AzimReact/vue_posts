@@ -9,7 +9,9 @@
     </div>
     <div class="postBtns">
         <my-button @click="$emit('remove', post)">Delete</my-button>
-        <my-button @click="">More info</my-button>
+        <my-button @click="$router.push(`/posts/${post.id}`)"
+            >More info</my-button
+        >
     </div>
 </template>
 <script>
