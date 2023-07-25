@@ -22,6 +22,6 @@ export default {
 }
 
 .app {
-    padding: 50px;
+    padding: 70px;
 }
 </style>

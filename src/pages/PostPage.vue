@@ -13,28 +13,17 @@ export default {
         PostForm,
         PostList,
     },
-    data() {
-        return {
-            posts: [
-                {
-                    id: 1,
-                    title: "Javascript 1",
-                    body: "This is JS 1",
-                    creator: "AZIMKA",
-                    date: "22/07/23",
-                },
-            ],
-            title: "",
-            body: "",
-            creator: "",
-        };
+    computed: {
+        posts() {
+            return this.$store.state.posts;
+        },
     },
     methods: {
         createPost(post) {
-            this.posts.push(post);
+            this.$store.dispatch("createPost", post);
         },
-        removePost(post) {
-            this.posts = this.posts.filter((p) => p.id !== post.id);
+        removePost(postId) {
+            this.$store.dispatch("removePost", postId);
         },
     },
 };

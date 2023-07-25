@@ -7,6 +7,7 @@
         <my-button
             style="align-self: flex-end; margin-top: 15px"
             @click="createPost"
+            :disabled="isSaveDisabled"
             >Add post</my-button
         >
     </form>
@@ -24,6 +25,11 @@ export default {
                 creator: "",
             },
         };
+    },
+    computed: {
+        isSaveDisabled() {
+            return !this.post.title || !this.post.body || !this.post.creator;
+        },
     },
     methods: {
         createPost() {

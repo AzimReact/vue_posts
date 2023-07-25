@@ -18,4 +18,14 @@ export default {
     border: 1px solid teal;
     cursor: pointer;
 }
+
+.btn:hover {
+    background-color: lightyellow;
+}
+
+.btn:disabled {
+    color: red;
+    border: 1px solid red;
+    background-color: white;
+}
 </style>

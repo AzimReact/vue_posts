@@ -3,12 +3,12 @@
         <div><strong>Title: </strong>{{ post.title }}</div>
         <div><strong>Description: </strong>{{ post.body }}</div>
         <div class="postDown">
-            <div>date: {{ post.date }}</div>
-            <div>creator: {{ post.creator }}</div>
+            <div><strong>Date: </strong>{{ post.date }}</div>
+            <div><strong>Creator: </strong>{{ post.creator }}</div>
         </div>
     </div>
     <div class="postBtns">
-        <my-button @click="$emit('remove', post)">Delete</my-button>
+        <my-button @click="removePost(post.id)">Delete</my-button>
         <my-button @click="$router.push(`/posts/${post.id}`)"
             >More info</my-button
         >
@@ -20,6 +20,11 @@ export default {
         post: {
             type: Object,
             required: true,
+        },
+    },
+    methods: {
+        removePost(postId) {
+            this.$store.dispatch("removePost", postId);
         },
     },
 };
@@ -38,6 +43,6 @@ export default {
     justify-content: space-between;
 }
 .postBtns {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 </style>
